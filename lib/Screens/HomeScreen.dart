@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: AppColors.primary,
             ),
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 45.0,
                 left: 30.0,
                 right: 25.0,
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Row(
                     children: [
                       Expanded(
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               border: InputBorder.none,
                               prefixIcon: IconButton(
                                 onPressed: () {},
-                                icon: Icon(Icons.search),
+                                icon: const Icon(Icons.search),
                               ),
                               suffixIcon: IconButton(
                                 onPressed: () {
@@ -93,16 +93,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // Clear search term
                                   });
                                 },
-                                icon: Icon(Icons.cancel),
+                                icon: const Icon(Icons.cancel),
                               ),
                               hintText: 'Search by colleges, schools...',
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white, // Set mic background color to white
                         ),
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Perform mic action
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.mic,
                             color: AppColors.primary, // Set mic icon color to match the theme
                           ),
@@ -124,43 +124,43 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           InkWell(
             onTap: () {
-              // Open bottom sheet
+              // -
               showModalBottomSheet(
                 context: context,
                 builder: (BuildContext context) {
                   return Container(
                     height: MediaQuery.of(context).size.height * 0.5,
-                    padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Sort By',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             IconButton(
                               onPressed: () {
                                 Navigator.pop(context); // Close bottom sheet
                               },
-                              icon: Icon(Icons.cancel, size: 25),
+                              icon: const Icon(Icons.cancel, size: 25),
                             ),
                           ],
                         ),
-                        Divider(),
-                        SizedBox(height: 10),
+                        const Divider(),
+                        const SizedBox(height: 10),
                         Row(
                           children: [
-                            Icon(Icons.school),
-                            SizedBox(width: 10),
-                            Text('Bachelor of Technology'),
-                            Spacer(),
+                            const Icon(Icons.school),
+                            const SizedBox(width: 10),
+                            const Text('Bachelor of Technology'),
+                            const Spacer(),
                             Radio(
                               value: 'btech',
                               groupValue: selectedValue,
@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   // Navigate to colleges screen
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => CollegesScreen(selectedValue: 'YourSelectedValueHere')),
+                                    MaterialPageRoute(builder: (context) => const CollegesScreen(selectedValue: 'YourSelectedValueHere')),
                                   );
                                 });
                               },
@@ -179,10 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Row(
                           children: [
-                            Icon(Icons.architecture),
-                            SizedBox(width: 10),
-                            Text('Bachelor of Architructure'),
-                            Spacer(),
+                            const Icon(Icons.architecture),
+                            const SizedBox(width: 10),
+                            const Text('Bachelor of Architecture'),
+                            const Spacer(),
                             Radio(
                               value: 'bsc',
                               groupValue: selectedValue,
@@ -196,10 +196,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Row(
                           children: [
-                            Icon(Icons.local_pharmacy),
-                            SizedBox(width: 10),
-                            Text('Pharmacy'),
-                            Spacer(),
+                            const Icon(Icons.local_pharmacy),
+                            const SizedBox(width: 10),
+                            const Text('Pharmacy'),
+                            const Spacer(),
                             Radio(
                               value: 'pharma',
                               groupValue: selectedValue,
@@ -213,10 +213,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Row(
                           children: [
-                            Icon(Icons.school),
-                            SizedBox(width: 10),
-                            Text('Law'),
-                            Spacer(),
+                            const Icon(Icons.school),
+                            const SizedBox(width: 10),
+                            const Text('Law'),
+                            const Spacer(),
                             Radio(
                               value: 'law',
                               groupValue: selectedValue,
@@ -230,10 +230,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Row(
                           children: [
-                            Icon(Icons.manage_history),
-                            SizedBox(width: 10),
-                            Text('ManageMent'),
-                            Spacer(),
+                            const Icon(Icons.manage_history),
+                            const SizedBox(width: 10),
+                            const Text('Management'),
+                            const Spacer(),
                             Radio(
                               value: 'manager',
                               groupValue: selectedValue,
@@ -253,75 +253,194 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
             child: Padding(
-              padding: EdgeInsets.only(left: 20.0, top: 15.0, right: 20.0),
-              child: Container(
-                height: 150.0,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
-                  image: DecorationImage(
-                    image: AssetImage(AppImages.college),
-                    fit: BoxFit.fill,
+              padding: const EdgeInsets.only(left: 20.0, top: 15.0, right: 20.0),
+              child: Stack(
+                children: [
+                  Container(
+                    height: 150.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      image: const DecorationImage(
+                        image: AssetImage(AppImages.college),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Top Colleges",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Search through thousands of accredited colleges and universities online to find the right one for you.  Apply in 3 min, and connect with your future.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      "Top Colleges",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: Colors.white,
+                  Positioned(
+                    bottom: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      padding: const EdgeInsets.all(4.0),
+                      color: Colors.white,
+                      child: const Text(
+                        '+126 Colleges',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 15.0, right: 20.0),
+            child: Stack(
+              children: [
+                Container(
+                  height: 150.0,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    image: const DecorationImage(
+                      image: AssetImage(AppImages.n),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  child: const Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Top Schools",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Searching for the best school for you just got easier! With our Advanced School Search, you can easily filter out the schools that are fit for you.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ),
+                Positioned(
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: Container(
+                    padding: const EdgeInsets.all(4.0),
+                    color: Colors.white,
+                    child: const Text(
+                      '+106 Schools',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          Padding(padding:EdgeInsets.only(left: 20.0,top: 15.0,right: 20.0),
-            child: Container(
-              height: 150.0,
-              // height: MediaQuery.of(context).size.height*0.2,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.0),
-                image:DecorationImage(
-                  image: AssetImage(AppImages.c),
-                  fit: BoxFit.fill,
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 15.0, right: 20.0),
+            child: Stack(
+              children: [
+                Container(
+                  height: 150.0,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    image: const DecorationImage(
+                      image: AssetImage(AppImages.h),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  child: const Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Exams",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            "Find an end to end information about the exams that are happening in India",
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14.0,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-
-              ),
-              child: Expanded(child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Exams",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0,color: Colors.white),),
-              )),
-            ),
-          ),Padding(padding: EdgeInsets.only(left: 20.0,top: 15.0,right: 20.0),
-            child: Container(
-              height: 150.0,
-              // height: MediaQuery.of(context).size.height*0.2,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.0),
-                image:DecorationImage(
-                  image: AssetImage(AppImages.c),
-                  fit: BoxFit.fill,
+                Positioned(
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: Container(
+                    padding: const EdgeInsets.all(4.0),
+                    color: Colors.white,
+                    child: const Text(
+                      '+16 Exams',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
-
-              ),
-              child: Expanded(child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("Top Schools",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0,color: Colors.white),),
-              )),
+              ],
             ),
           ),
         ],
       ),
-      bottomNavigationBar: BBottom(),
+      bottomNavigationBar: const BBottom(),
     );
   }
-
-
 }

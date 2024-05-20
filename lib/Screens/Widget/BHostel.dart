@@ -17,31 +17,31 @@ class _BHostelState extends State<BHostel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.primary,
-        // title: Center(child: Text("-----------",style: TextStyle(color: Colors.white),),),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back,color: Colors.white,),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: IconButton(
-              icon: Icon(Icons.save),
-              onPressed: () {
-                // Handle save button press
-              },
-            ),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: AppColors.primary,
+      //   // title: Center(child: Text("-----------",style: TextStyle(color: Colors.white),),),
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back,color: Colors.white,),
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //   ),
+      //   actions: [
+      //     Container(
+      //       margin: EdgeInsets.all(10),
+      //       decoration: BoxDecoration(
+      //         shape: BoxShape.circle,
+      //         color: Colors.white,
+      //       ),
+      //       child: IconButton(
+      //         icon: Icon(Icons.save),
+      //         onPressed: () {
+      //           // Handle save button press
+      //         },
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: ListView(
         physics: AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
@@ -69,12 +69,13 @@ class _BHostelState extends State<BHostel> {
                     Expanded(child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",style: TextStyle(fontWeight: FontWeight.normal),),),
                     Spacer(),
                     Container(
-                      height: 60.0,
+                      height: 80.0,
                       width: 60.0,
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0),color: Colors.green),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text("4.3"),
+                          Text("4.3",style: TextStyle(fontSize:18.0,fontWeight: FontWeight.bold,color: Colors.white),),
                           SizedBox(height: 10.0,),
                           Icon(Icons.star,color: Colors.white,)
                         ],
@@ -85,38 +86,46 @@ class _BHostelState extends State<BHostel> {
               ],
             ),
           ),
-          Container(
-
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primary),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text("About College",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold, ),),
-                    Divider(height: 10,thickness: 5,color: Colors.orange,),
-                  ],
-                ),
-                SizedBox(width: 10.0,),                Column(
-                  children: [
-                    Text("Hostel",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold,color: Colors.blue),),
-                  ],
-                ),
-                SizedBox(width: 10.0,),
-
-                Text("Q&A",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                SizedBox(width: 10.0,),
-
-                Text("Events",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                SizedBox(width: 10.0,),
-
-              ],
-            ),
+          TabBar(
+            tabs: [
+              Tab(text: "About College"),
+              Tab(text: "Hostel"),
+              Tab(text: "Q&A"),
+              Tab(text: "Events"),
+            ],
           ),
+          // Container(
+          //
+          //   width: MediaQuery.of(context).size.width,
+          //   decoration: BoxDecoration(
+          //     border: Border.all(color: AppColors.primary),
+          //   ),
+          //   child: Row(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Column(
+          //         children: [
+          //           Text("About College",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold, ),),
+          //           Divider(height: 10,thickness: 5,color: Colors.orange,),
+          //         ],
+          //       ),
+          //       SizedBox(width: 10.0,),                Column(
+          //         children: [
+          //           Text("Hostel",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold,color: Colors.blue),),
+          //         ],
+          //       ),
+          //       SizedBox(width: 10.0,),
+          //
+          //       Text("Q&A",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+          //       SizedBox(width: 10.0,),
+          //
+          //       Text("Events",style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+          //       SizedBox(width: 10.0,),
+          //
+          //     ],
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Row(
@@ -183,8 +192,9 @@ class _BHostelState extends State<BHostel> {
             padding: const EdgeInsets.all(16.0),
             child: Container(
               margin: const EdgeInsets.all(10.0),
-              height: 200,
+              height: 130,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0)
               ),
               child: Swiper.children(
                 autoplay: true,
@@ -196,46 +206,46 @@ class _BHostelState extends State<BHostel> {
                   builder: DotSwiperPaginationBuilder(
                       color: Colors.grey),
                 ),
-                control: const SwiperControl(
-                  iconNext: Icons.arrow_forward_ios,
-                  iconPrevious: Icons.arrow_back_ios,
-                ),
+                // control: const SwiperControl(
+                //   iconNext: Icons.arrow_forward_ios,
+                //   iconPrevious: Icons.arrow_back_ios,
+                // ),
                 children: <Widget>[
                   Container(
-                      margin: const EdgeInsets.only(
-                          right: 50.0, bottom: 20.0),
+                      // margin: const EdgeInsets.only(
+                      //     right: 50.0, bottom: 20.0),
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
                           child: Image(image: AssetImage(AppImages.college),
-                          fit: BoxFit.cover,),),),
+                          fit: BoxFit.fill,),),),
                   Container(
-                      margin: const EdgeInsets.only(
-                          right: 50.0, bottom: 20.0),
+                      // margin: const EdgeInsets.only(
+                      //     right: 50.0, bottom: 20.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
-                        child: Image(image: AssetImage(AppImages.bt),
-                          fit: BoxFit.cover,),),),
+                        child: Image(image: AssetImage(AppImages.n),
+                          fit: BoxFit.fill,),),),
                   Container(
-                      margin: const EdgeInsets.only(
-                          right: 50.0, bottom: 20.0),
+                      // margin: const EdgeInsets.only(
+                      //     right: 50.0, bottom: 20.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
                         child: Image(image: AssetImage(AppImages.c),
-                          fit: BoxFit.cover,),),),
+                          fit: BoxFit.fill,),),),
                   Container(
-                      margin: const EdgeInsets.only(
-                          right: 50.0, bottom: 20.0),
+                      // margin: const EdgeInsets.only(
+                      //     right: 50.0, bottom: 20.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
                         child: Image(image: AssetImage(AppImages.d),
-                          fit: BoxFit.cover,),),),
+                          fit: BoxFit.fill,),),),
                   Container(
-                      margin: const EdgeInsets.only(
-                          right: 50.0, bottom: 20.0),
+                      // margin: const EdgeInsets.only(
+                      //     right: 50.0, bottom: 20.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
-                        child: Image(image: AssetImage(AppImages.e),
-                          fit: BoxFit.cover,),),),
+                        child: Image(image: AssetImage(AppImages.h),
+                          fit: BoxFit.fill,),),),
                 ],
               ),
             ),
@@ -250,14 +260,15 @@ class _BHostelState extends State<BHostel> {
                 Spacer(),
                 Container(
                   height: 40.0,
-                  width: 60.0,
+                  width: 70.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
                     color: Colors.green,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text("4.3"),
+                      Text("4.3",style: TextStyle(fontSize:18.0,fontWeight: FontWeight.bold,color: Colors.white),),
                       Icon(Icons.star,color: Colors.white,),
                     ],
                   ),
@@ -306,14 +317,6 @@ class _BHostelState extends State<BHostel> {
           ),
 
         ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Container(
-          height: 50.0,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0),color: AppColors.primary),
-          child: Center(child: Text("Apply Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22.0),)),
-        ),
       ),
     );
   }
